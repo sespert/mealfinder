@@ -1,8 +1,6 @@
 #logo{
     height: 200px;
-    
-    margin:5%;
-    
+    margin:2%;
 }
 body{
     text-align: center;
@@ -12,10 +10,20 @@ body{
     width:5%;
     height: 2%;
     border-radius: 30px;
+    margin-bottom: 10px;
+    
 }
 .signin-button{
     outline-color: black;
     width:5%;
     height: 2%;
     border-radius: 30px;
+}
+#username {
+    align: center;
+    padding-left: 44%;
+    padding-bottom: 10px;
+}
+#username2{
+    padding-left: 44%;
 }
