@@ -1,0 +1,21 @@
+#logo{
+    height: 200px;
+    
+    margin:5%;
+    
+}
+body{
+    text-align: center;
+}
+.new-button{
+    outline-color: black;
+    width:5%;
+    height: 2%;
+    border-radius: 30px;
+}
+.signin-button{
+    outline-color: black;
+    width:5%;
+    height: 2%;
+    border-radius: 30px;
+}
