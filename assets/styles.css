@@ -20,10 +20,22 @@ body{
     border-radius: 30px;
 }
 #username {
-    align: center;
+    
     padding-left: 44%;
     padding-bottom: 10px;
 }
 #username2{
     padding-left: 44%;
+    padding-bottom: 50px;
+}
+#search-items{
+    padding-left:44%;
+
+}
+git pfooter{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width:100%;
+    text-align: center;
 }
