@@ -12,9 +12,15 @@ $(document).ready(function(){
     firebase.initializeApp(config);
 
   //Expands each button for user input and hide the other button
-  $('button').on('click', function (event) {
+  $('.new-button').on('click', function (event) {
     event.preventDefault();
-    $("#sign-in-button").hide();
+    $(".signin-button").hide();
+    $('form div').addClass('active');
+  });
+
+  $('.signin-button').on('click', function (event) {
+    event.preventDefault();
+    $(".new-button").hide();
     $('form div').addClass('active');
   });
 
@@ -31,10 +37,11 @@ $(document).ready(function(){
       }
     
       $("#submit").on("click", function(event){
-        return validateUserInput();
-
+        validateUserInput();
+        console.log(validateUserInput());
       });
- //User validation for returning user
+    
+    //User validation for returning user
 
     //Display favorite items
     //If empty, display no favorites, start adding it
