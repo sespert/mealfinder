@@ -17,7 +17,7 @@ body {
 }
 
 .new-button {
-    outline: none;
+    outline: black;
     width: 5%;
     height: 2%;
     border-radius: 30px;
@@ -25,15 +25,15 @@ body {
 }
 
 .signin-button {
-    outline: none;
-    width: 5%;
+    outline: black;
+    width: 7%;
     height: 2%;
     border-radius: 30px;
 }
 
 .submit-button {
-    outline: none;
-    width: 5%;
+    outline: black;
+    width: 7%;
     height: 2%;
     border-radius: 30px;
 }
@@ -69,7 +69,7 @@ form div.active {
 }
 
 #user-input {
-    outline: none;
+    outline: black;
     border-radius: 30px;
 }
 
@@ -79,4 +79,18 @@ footer {
     bottom: 0;
     width: 100%;
     text-align: center;
+}
+.add-item {
+    outline: black;
+    width: 5%;
+    height: 2%;
+    border-radius: 30px;
+    margin-bottom: 10px;
+}
+.search-page-button{
+    outline: black;
+    width: 7%;
+    height: 2%;
+    border-radius: 30px;
+    margin-bottom: 10px;
 }
