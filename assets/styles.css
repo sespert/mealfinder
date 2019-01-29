@@ -5,7 +5,7 @@
 body{
     text-align: center;
 }
-.new-button{
+/*.new-button{
     outline-color: black;
     width:5%;
     height: 2%;
@@ -30,8 +30,8 @@ body{
 }
 #search-items{
     padding-left:44%;
-
 }
+*/
 footer{
     position: fixed;
     left: 0;
@@ -39,3 +39,81 @@ footer{
     width:100%;
     text-align: center;
 }
+form {
+    position:relative;
+ }
+ form div {
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:100%;
+    overflow:hidden;
+    transition:all .5s ease-in;
+ }
+ form div.active {
+    left:0;
+ }
+
+ button{
+     top:0;
+     left: -100%;
+     width: 100%;
+     transition: all .5s ease; 
+ }
+
+ .moved{
+     transform: translate(115px);
+ }
+ 
+ form div.active{
+     left: 0;
+ }
+
+ .new-user{
+    border-radius: 30px;
+    outline: none;
+    box-shadow: inset 0px 0px 5px rgba(0,0,0,.17);
+ }
+
+ .header {
+    overflow: hidden;
+    background-color: #f1f1f1;
+    padding: 20px 10px;
+  }
+
+  #logo-results{
+    width: 5%;
+    height: 5%;
+  }
+
+  .header a {
+    color: black;
+    text-align: center;
+    padding: 12px;
+    font-size: 14px; 
+    line-height: 25px;
+    border-radius: 4px;
+    top: 20px;
+    left: 10px;
+  }
+
+  .header a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+
+  table{
+      border-radius: 50%;
+  }
+
+  #recipes-table{
+      float: left;
+  }
+
+  #restaurant-table{
+      float: right;
+  }
+
+ 
+ 
+  
