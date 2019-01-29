@@ -6,7 +6,7 @@ body{
     text-align: center;
 }
 .new-button{
-    outline-color: black;
+    outline: none;
     width:5%;
     height: 2%;
     border-radius: 30px;
@@ -14,7 +14,14 @@ body{
     
 }
 .signin-button{
-    outline-color: black;
+    outline: none;
+    width:5%;
+    height: 2%;
+    border-radius: 30px;
+}
+
+.submit-button {
+    outline: none;
     width:5%;
     height: 2%;
     border-radius: 30px;
@@ -47,6 +54,11 @@ form {
     padding-left:44%;
 
 }
+#user-input  {
+    outline: none;
+    border-radius: 30px;
+}
+
 footer{
     position: fixed;
     left: 0;
