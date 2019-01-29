@@ -19,6 +19,21 @@ body{
     height: 2%;
     border-radius: 30px;
 }
+
+form {
+    position:relative;
+ }
+ form div {
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:100%;
+    overflow:hidden;
+    
+ }
+ form div.active {
+    left:0;
+ }
 #username {
     
     padding-left: 44%;
