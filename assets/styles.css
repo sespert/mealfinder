@@ -12,8 +12,8 @@
 
 body {
     text-align: center;
-    aabackground-image: url("./images/project1-background.jpg");
-    font-family: Goudy Old Style, Garamond, Big Caslon, Times New Roman, serif;
+    NOTYETbackground-image: url("./images/project1-background.jpg");
+    font-family: Palatino, Palatino Linotype, Palatino LT STD, Book Antiqua, Georgia, serif
     
 }
 
@@ -110,12 +110,13 @@ footer {
 }
 h2{
     margin-top:15px;
-    color:black;
+    color:white;
     font-style: italic;
     font-weight: 500;
+
 }
 h1{
-    color:black;
+    color:white;
     font-style: italic;
     font-weight: 600;
     font-size: 70px;
