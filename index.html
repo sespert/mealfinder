@@ -23,11 +23,8 @@
 </head>
 
 <body>
-
-    <!-- Home Page-->
-    <!--Logo header-->
     <header>
-    <div class="row">
+        <div class="row">
         <div class="col">
             <img id="logo" src="./assets/images/logo.png" alt="Meal Finder Logo">
         </div>
@@ -37,7 +34,6 @@
         <form>
             <button type="button" class="new-button">New</button>
             <button type="button" class="signin-button">Sign In</button>
-        
             <div>
                 <input type='text' id= "user-input"/>
                 <button type='submit' class='submit-button' id="submit">Submit</button>
@@ -46,9 +42,20 @@
     </div>  
 
 
-    <div id="search-page"></div>
+    <div id="search-page">
+        <form action="">
+            <button type="button" class="add-item">Add</button>
+            <input type='text' class ="ingredientToSearch" id= "user-input"/>
+            <button class='search-page-button' id="search-ingred">Search</button>
+        </form>
+            <br>
+        <div id="ingredients"></div>
+        
+    </div>
 
-    <div id="results-page"></div>
+    <div id="results-page">
+        <div id='recipe-list'></div>
+    </div>
       <!-- <div id="username" class="input-group mb-3">
             <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1"></span>
@@ -99,23 +106,7 @@
 Search Page
  -Logo header-
  <body>
-    <header>
-       <div class="row">
-           <div class="col">
-               <img id="logosearch" src="./assets/images/logo.png" alt="Meal Finder Logo">
-           </div>
-       </header>
-   
-       
-       <form action="">
-           <button type="button" class="add-item">Add</button>
-           
-           
-           
-               <input type='text' id= "user-input"/>
-               <button class='search-page-button' id="search">Search</button>
-           
-       </form>
+    
 
 </body>
 
