@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
   //Global variables
   var ingredientList = [];
   var items;
@@ -12,6 +11,8 @@ $(document).ready(function() {
   var titleCard = $('<h5 class="card-title">');
   var textCard = $('<p class="card-text">');
 
+  $("#search-page").hide();
+  $("#results-page").hide();
 
   // Initiate Firebase
   var config = {
@@ -30,12 +31,14 @@ $(document).ready(function() {
   $('.new-button').on('click', function (event) {
     event.preventDefault();
     $(".signin-button").hide();
+    $(".new-button").hide();
     $('form div').addClass('active');
   });
 
   $('.signin-button').on('click', function (event) {
     event.preventDefault();
     $(".new-button").hide();
+    $(".signin-button").hide();
     $('form div').addClass('active');
   });
 
@@ -46,7 +49,6 @@ $(document).ready(function() {
         $("#alert").text("Name must be filled out");
         return false;
       } else {
-          console.log(userName);
           return userName;
       }
     }
@@ -54,7 +56,7 @@ $(document).ready(function() {
   $("#submit").on("click", function(event){
     event.preventDefault();
 
-    userName = validateUserInput();
+    userName = validateUserInput().toLowerCase();
 
     var newUser = {
       name: userName,
@@ -63,7 +65,10 @@ $(document).ready(function() {
 
     database.ref("users").child(newUser.name).set(newUser);
 
-    $("#login-page").empty();
+    //Hides the login buttons
+    $("#login-page").hide();
+    //Shows the ingredient search buttons
+    $("#search-page").show();
 
     // database.ref("users").on("child_added", function(childSnapshot) {
     //   console.log(childSnapshot.val());
@@ -92,31 +97,39 @@ $(document).ready(function() {
   //Display favorite items
   //If empty, display no favorites, start adding it
 
-  var recipes = [];
-  //Firebase link to add user to database
-  // Creates local "temporary" object for holding user data
-    var newUser = {
-      name: userName,
-      favoriteRecipes: recipes,        
-    };
+  // var recipes = [];
+  // //Firebase link to add user to database
+  // // Creates local "temporary" object for holding user data
+  //   var newUser = {
+  //     name: userName,
+  //     favoriteRecipes: recipes,        
+  //   };
   
     //Read ingredients from input field, create an array
-    $("#addIngred").on('click', function (event) {
+    $(".add-item").on('click', function (event) {
       event.preventDefault();
-      items= $("#inputbox").val().trim();
+      items= $(".ingredientToSearch").val().trim();
       $("#ingredients").append(items + " ");
-      $("#inputbox").val("");
+      $(".ingredientToSearch").val("");
       ingredientList.push(items);
       console.log(ingredientList);
-  
     });
   
+    //When ready to search, user presses search button to display recipes
+    //and restaurants
     $("#search-ingred").on('click', function (event) {
+      event.preventDefault();
+      //Hide buttons from login and search
+      $("#login-page").hide();
+      $("#search-page").hide();
+      //Show results div that's going to be populated with list of recipes and restaurants
+      $("#results-page").show();
       console.log(ingredientList);
+      //Function to search recipes
       searchRecipes(ingredientList);
     });
   
-    //Send the array to search query of the api
+    //Send the array to recipe search query of the api
     function searchRecipes(arr) {
       //var ingredientList = arr.toString();
       for (var i=0; i<arr.length;i++) {
