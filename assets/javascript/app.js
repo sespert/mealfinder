@@ -1,6 +1,7 @@
 $(document).ready(function() {
   //Global variables
   var ingredientList = [];
+  var ingredForQuery = [];
   var items;
   //var itemID =[];
   var apiKey = "5xw4QaTb3Wmsh8AQrQQBKOLf93yXp10FyXNjsnN6kLNdE5w3P6";
@@ -109,14 +110,43 @@ $(document).ready(function() {
     $(".add-item").on('click', function (event) {
       event.preventDefault();
       items= $(".ingredientToSearch").val().trim();
-      $("#ingredients").append(items + " ");
+      $("#ingredients").append("<div id='ingredSelected'>" + items + "  <span id='delete'>X</span></div>");
+      $("#ingredSelected").attr("val", items);
       $(".ingredientToSearch").val("");
       ingredientList.push(items);
       console.log(ingredientList);
+      
     });
-  
-    //When ready to search, user presses search button to display recipes
-    //and restaurants
+
+    //Add a listener to the document for when an ingredient needs
+    //to be deleted. We can't use .click, because the element is dynamically created.
+    $(document).on("click", "#delete", removeIngredient);
+    
+    //Function to remove an ingredient
+    function removeIngredient () {
+      //Select the value to be removed by looking at the value of the button clicked
+      var itemToRemove = $(this).closest("div").attr('val');
+      //Save a new array of items by removing the deleted item
+      ingredForQuery = arrayRemove(ingredientList, itemToRemove);
+      //Remove from ingredient list
+      $(this).closest("div").remove();
+    }
+
+    //Function to help remove items from array
+    function arrayRemove(arr, value) {
+      return arr.filter(function(ele) {
+          return ele != value;
+      })
+    }
+
+    //If no ingredients are deleted, the array for the API search will be the same as the ingredients added
+    if (ingredForQuery.length === 0) {
+      ingredForQuery = ingredientList;
+      console.log(ingredForQuery.length);
+      console.log(ingredForQuery);
+    } 
+
+    //When ready to search, user presses search button to display recipes and restaurants
     $("#search-ingred").on('click', function (event) {
       event.preventDefault();
       //Hide buttons from login and search
@@ -124,12 +154,12 @@ $(document).ready(function() {
       $("#search-page").hide();
       //Show results div that's going to be populated with list of recipes and restaurants
       $("#results-page").show();
-      console.log(ingredientList);
+      console.log(ingredForQuery);
       //Function to search recipes
-      searchRecipes(ingredientList);
+      searchRecipes(ingredForQuery);
     });
   
-    //Send the array to recipe search query of the api
+    //Send the array to recipe search query of the API
     function searchRecipes(arr) {
       //var ingredientList = arr.toString();
       for (var i=0; i<arr.length;i++) {
