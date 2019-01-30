@@ -24,6 +24,22 @@ body {
     border: .5px solid black;
 }
 
+#delete {
+    cursor:pointer;
+    color:black;
+    font-weight: bold;
+  }
+
+  #ingredients div {
+    border:1px solid grey;
+    font-size: 18px;
+    box-sizing: border-box;
+    width: 15%;
+    height: 2%;
+    margin-top: 4%;
+    border-radius: 30px;
+  }
+
 .new-button {
     outline: black;
     width: 15%;
