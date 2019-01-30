@@ -11,7 +11,8 @@ $(document).ready(function() {
   var bodyCard = $('<div class="card-body">');
   var titleCard = $('<h5 class="card-title">');
   var textCard = $('<p class="card-text">');
-  
+
+
   // Initiate Firebase
   var config = {
       apiKey: "AIzaSyCy-Ar-cQpeBMIXNgJvrohQ-FzvlmfTabQ",

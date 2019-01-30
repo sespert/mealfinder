@@ -11,24 +11,29 @@
 body {
     text-align: center;
 }
-/*.new-button{
-    outline-color: black;
-    width:5%;
+
+.header-break {
+    border: .5px solid black;
+}
+
+.new-button {
+    outline: black;
+    width: 5%;
     height: 2%;
     border-radius: 30px;
     margin-bottom: 10px;
 }
 
 .signin-button {
-    outline: none;
-    width: 5%;
+    outline: black;
+    width: 7%;
     height: 2%;
     border-radius: 30px;
 }
 
 .submit-button {
-    outline: none;
-    width: 5%;
+    outline: black;
+    width: 7%;
     height: 2%;
     border-radius: 30px;
 }
@@ -61,89 +66,30 @@ form div.active {
 #search-items{
     padding-left:44%;
 }
-*/
-footer{
+
+#user-input {
+    outline: black;
+    border-radius: 30px;
+}
+
+footer {
     position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
     text-align: center;
 }
-form {
-    position:relative;
- }
- form div {
-    position:absolute;
-    top:0;
-    left:-100%;
-    width:100%;
-    overflow:hidden;
-    transition:all .5s ease-in;
- }
- form div.active {
-    left:0;
- }
-
- button{
-     top:0;
-     left: -100%;
-     width: 100%;
-     transition: all .5s ease; 
- }
-
- .moved{
-     transform: translate(115px);
- }
- 
- form div.active{
-     left: 0;
- }
-
- .new-user{
-    border-radius: 30px;
-    outline: none;
-    box-shadow: inset 0px 0px 5px rgba(0,0,0,.17);
- }
-
- .header {
-    overflow: hidden;
-    background-color: #f1f1f1;
-    padding: 20px 10px;
-  }
-
-  #logo-results{
+.add-item {
+    outline: black;
     width: 5%;
-    height: 5%;
-  }
-
-  .header a {
-    color: black;
-    text-align: center;
-    padding: 12px;
-    font-size: 14px; 
-    line-height: 25px;
-    border-radius: 4px;
-    top: 20px;
-    left: 10px;
-  }
-
-  .header a:hover {
-    background-color: #ddd;
-    color: black;
-  }
-
-  table{
-      border-radius: 50%;
-  }
-
-  #recipes-table{
-      float: left;
-  }
-
-  #restaurant-table{
-      float: right;
-  }
-
- 
- 
-  
+    height: 2%;
+    border-radius: 30px;
+    margin-bottom: 10px;
+}
+.search-page-button{
+    outline: black;
+    width: 7%;
+    height: 2%;
+    border-radius: 30px;
+    margin-bottom: 10px;
+}
