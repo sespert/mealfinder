@@ -11,7 +11,8 @@ $(document).ready(function() {
   var bodyCard = $('<div class="card-body">');
   var titleCard = $('<h5 class="card-title">');
   var textCard = $('<p class="card-text">');
-  
+
+
   // Initiate Firebase
   var config = {
       apiKey: "AIzaSyCy-Ar-cQpeBMIXNgJvrohQ-FzvlmfTabQ",
@@ -22,6 +23,8 @@ $(document).ready(function() {
       messagingSenderId: "739056825436"
   };
   firebase.initializeApp(config);
+  var database = firebase.database();
+
 
   //Expands each button for user input and hides the other button
   $('.new-button').on('click', function (event) {
@@ -49,8 +52,37 @@ $(document).ready(function() {
     }
     
   $("#submit").on("click", function(event){
-    validateUserInput();
-    console.log(validateUserInput());
+    event.preventDefault();
+
+    userName = validateUserInput();
+
+    var newUser = {
+      name: userName,
+      favoriteRecipes: []        
+    };
+
+    database.ref("users").child(newUser.name).set(newUser);
+
+    database.ref("users").on("child_added", function(childSnapshot) {
+      console.log(childSnapshot.val());
+
+      var existingUsers = [];
+      var len = childSnapshot.val().length;
+      console.log(len);
+
+      // for (var j=0;j<len; j++) {
+      //   existingUsers.push()
+      // }
+      
+
+
+      // for (var i=0;i<.length;i++) {
+      //   if (userName == existingUsers[i]) {
+      //     alert("taken");
+      //   } else {
+      //     alert("good");
+      //   }
+      // }
   });
     
   //User validation for returning user
@@ -145,5 +177,5 @@ $(document).ready(function() {
 });
 
 
-
+});
 

@@ -1,3 +1,8 @@
+* {
+    font-family: ‘Roboto’, sans-serif;
+}
+
+
 #logo {
     height: 200px;
     margin: 2%;
@@ -12,8 +17,6 @@
 
 body {
     text-align: center;
-    NOTYETbackground-image: url("./images/project1-background.jpg");
-    font-family: Palatino, Palatino Linotype, Palatino LT STD, Book Antiqua, Georgia, serif
     
 }
 
@@ -27,7 +30,6 @@ body {
     height: 2%;
     border-radius: 50px;
     margin-top:4%;
-    font-family: Goudy Old Style, Garamond, Big Caslon, Times New Roman, serif;
    
 }
 
@@ -37,7 +39,6 @@ body {
     height: 2%;
     margin-top: 4%;
     border-radius: 30px;
-    font-family: Goudy Old Style, Garamond, Big Caslon, Times New Roman, serif;
 }
 
 .submit-button {
@@ -73,9 +74,8 @@ form div.active {
     padding-left: 44%;
     padding-bottom: 50px;
 }
-
-#search-items {
-    padding-left: 44%;
+#search-items{
+    padding-left:44%;
 }
 
 #user-input {
@@ -96,7 +96,6 @@ footer {
     height: 2%;
     border-radius: 30px;
     margin-top: 3%;
-    font-family: Goudy Old Style, Garamond, Big Caslon, Times New Roman, serif;
     
 }
 .search-page-button{
@@ -105,7 +104,6 @@ footer {
     height: 2%;
     border-radius: 30px;
     margin-top:3%;
-    font-family: Goudy Old Style, Garamond, Big Caslon, Times New Roman, serif;
     
 }
 h2{
@@ -120,8 +118,8 @@ h1{
     font-style: italic;
     font-weight: 600;
     font-size: 70px;
-    font-family: Futura, Trebuchet MS, Arial, sans-serif;
 }
+
 #logosearch{
     height: 240px;
     margin: 2%;
