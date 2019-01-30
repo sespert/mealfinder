@@ -108,12 +108,13 @@ footer {
 }
 h2{
     margin-top:15px;
-    color:black;
+    color:white;
     font-style: italic;
     font-weight: 500;
+
 }
 h1{
-    color:black;
+    color:white;
     font-style: italic;
     font-weight: 600;
     font-size: 70px;
