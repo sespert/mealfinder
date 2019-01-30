@@ -63,12 +63,14 @@ $(document).ready(function() {
 
     database.ref("users").child(newUser.name).set(newUser);
 
-    database.ref("users").on("child_added", function(childSnapshot) {
-      console.log(childSnapshot.val());
+    $("#login-page").empty();
 
-      var existingUsers = [];
-      var len = childSnapshot.val().length;
-      console.log(len);
+    // database.ref("users").on("child_added", function(childSnapshot) {
+    //   console.log(childSnapshot.val());
+
+    //   var existingUsers = [];
+    //   var len = childSnapshot.val().length;
+    //   console.log(len);
 
       // for (var j=0;j<len; j++) {
       //   existingUsers.push()
