@@ -12,8 +12,6 @@ $(document).ready(function() {
   var titleCard = $('<h5 class="card-title">');
   var textCard = $('<p class="card-text">');
 
-  $("#search-page").hide();
-  $("#results-page").hide();
 
   // Initiate Firebase
   var config = {
@@ -54,17 +52,21 @@ $(document).ready(function() {
       }
     }
     
-  $("#submit").on("click", function(event){
+  $("#reg-submit").on("click", function(event){
     event.preventDefault();
+    console.log("reg submit")
+   // userName = validateUserInput().toLowerCase();
 
-    userName = validateUserInput().toLowerCase();
-
-    var newUser = {
-      name: userName,
-      favoriteRecipes: []        
-    };
-
-    database.ref("users").child(newUser.name).set(newUser);
+    var email = $('#reg-email').val()
+    var password = $('#reg-password').val()
+    firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      alert(errorMessage)
+      // ...
+    });
+   // database.ref("users").child(newUser.name).set(newUser);
 
     //Hides the login buttons
     $("#login-page").hide();
@@ -92,7 +94,23 @@ $(document).ready(function() {
       //   }
       // }
   });
-    
+  
+  $('#login').on('click', function(){
+    console.log("in login")
+    var email= $('#email').val()
+    var password = $('#password').val()
+    firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      if(error){
+        alert(errorMessage)
+      }
+
+      // ...
+    });
+
+  })
   //User validation for returning user
 
   //Display favorite items
