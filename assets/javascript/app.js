@@ -6,12 +6,9 @@ $(document).ready(function() {
   //var itemID =[];
   var apiKey = "5xw4QaTb3Wmsh8AQrQQBKOLf93yXp10FyXNjsnN6kLNdE5w3P6";
   var queryURLRecipes = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ranking=1&ingredients=" 
-  var divCard = $('<div class="card-mb-3 w-25">'); 
-  var imageCard =  $('<img class="card-img-top" id="recipeCard">');
-  var bodyCard = $('<div class="card-body">');
-  var titleCard = $('<h5 class="card-title">');
-  var textCard = $('<p class="card-text">');
-
+  
+  $("#search-page").hide();
+  $("#results-page").hide();
 
   // Initiate Firebase
   var config = {
@@ -64,6 +61,7 @@ $(document).ready(function() {
       var errorCode = error.code;
       var errorMessage = error.message;
       alert(errorMessage)
+      $("#search-page").show();
       // ...
     });
    // database.ref("users").child(newUser.name).set(newUser);
@@ -71,7 +69,6 @@ $(document).ready(function() {
     //Hides the login buttons
     $("#login-page").hide();
     //Shows the ingredient search buttons
-    $("#search-page").show();
 
     // database.ref("users").on("child_added", function(childSnapshot) {
     //   console.log(childSnapshot.val());
@@ -128,8 +125,7 @@ $(document).ready(function() {
     $(".add-item").on('click', function (event) {
       event.preventDefault();
       items= $(".ingredientToSearch").val().trim();
-      $("#ingredients").append("<div id='ingredSelected'>" + items + "  <span id='delete'>X</span></div>");
-      $("#ingredSelected").attr("val", items);
+      $("#ingredients").append("<div id='" + items + "'>" + items + "  <span id='delete'>X</span></div>");
       $(".ingredientToSearch").val("");
       ingredientList.push(items);
       console.log(ingredientList);
@@ -148,6 +144,10 @@ $(document).ready(function() {
       ingredForQuery = arrayRemove(ingredientList, itemToRemove);
       //Remove from ingredient list
       $(this).closest("div").remove();
+      console.log(itemToRemove);    
+      console.log("After remove: "+ ingredForQuery);
+      ingredientList = ingredForQuery;
+      console.log(ingredientList);
     }
 
     //Function to help remove items from array
@@ -191,11 +191,13 @@ $(document).ready(function() {
         }).then(function(results) {
           //Append recipes data to one column
           for (var j=0; j<5; j++) {          
-            console.log(results[j].title);
-            console.log(results[j].image);
-            console.log(results[j].id);
+            var divCard = $('<div class="card-mb-3 w-25">'); 
+            var imageCard =  $('<img class="card-img-top" id="recipeCard">');
+            var bodyCard = $('<div class="card-body">');
+            var titleCard = $('<h5 class="card-title">');
+            var textCard = $('<p class="card-text">');
             imageCard.attr("src", results[j].image);
-            image.attr("val", results[j].id);          
+            imageCard.attr("val", results[j].id);          
             titleCard.text(results[j].title);
             textCard.text("Cost: $");
             bodyCard.append(titleCard, textCard);
