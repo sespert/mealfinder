@@ -1,29 +1,20 @@
 var settings = {
     "async": true,
-    "crossDomain": true,
-    "url": "https://api.foursquare.com/v2/venues/4bdb0fde63c5c9b66e232668/menu?client_secret=YWT2CD5WRETJNXU3IFPMZWVN3P0ZGM2CJXY0DUNGBPMY5OAL&client_id=B1ZV2KU5GMJRR2CS2BBJ5WYIFGZGAD5C5LXRITK1KK1Q1MZQ&v=20190110",
+    "url": "https://ancient-ocean-97660.herokuapp.com/foursquareWrapper?city=Miami,Fl&query=sportsbar",
     "method": "GET",
     "headers": {
+      "Content-Type": "application/json",
       "cache-control": "no-cache",
-      "Postman-Token": "603a6cca-6979-4c0f-89df-0cad8d7e2ed6"
-    }
+      "Postman-Token": "f1aabd14-c1f5-4f45-b2e4-a88fadeddc62"
+    },
+    "processData": false,
+    "data": ""
    }
    
    $.ajax(settings).done(function (response) {
     console.log(response);
    });
    
-   var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "https://api.foursquare.com/v2/venues/search?near=Miami,Fl&query=cuban&client_id=B1ZV2KU5GMJRR2CS2BBJ5WYIFGZGAD5C5LXRITK1KK1Q1MZQ&client_secret=YWT2CD5WRETJNXU3IFPMZWVN3P0ZGM2CJXY0DUNGBPMY5OAL&v=20190110",
-    "method": "GET",
-    "headers": {
-      "cache-control": "no-cache",
-      "Postman-Token": "c000ac89-e8f6-4f3b-a31b-cea8bd902d3e"
-    }
-   }
    
-   $.ajax(settings).done(function (response) {
-    console.log(response);
-   });
+//append to results page div 
+//build api on foursquare --> send to Frank 
