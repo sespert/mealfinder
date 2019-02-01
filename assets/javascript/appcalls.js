@@ -24,6 +24,20 @@ $.ajax(settings).done(function (results) {
   }
 });
 
+$(".restaurantDiv").on("click", function(event) {
+
+// <div class="restaurantDiv" data-name="Outback Steak House"> </div>
+
+  var restaurant = $(this).data('name'); 
+  console.log(restaurant);
+  
+  var queryURL = "https://ancient-ocean-97660.herokuapp.com/foursquareWrapper?city=Miami,Fl&query=" + restaurant
+
+  setting['url'] = queryURL;
+
+  //within function create ajax call
+
+});
 
 
 var restaurantList = [];
