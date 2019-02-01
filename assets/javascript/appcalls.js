@@ -36,7 +36,12 @@ $(".restaurantDiv").on("click", function(event) {
   setting['url'] = queryURL;
 
   //within function create ajax call
+  $.ajax({
+    url: "https://ancient-ocean-97660.herokuapp.com/foursquareWrapper?city=Miami,Fl&query=olivegarden",
+    method: "GET"
+  })
 
+  
 });
 
 
@@ -45,17 +50,6 @@ var restaurant = [];
 
 
 
-
-
-
-//$('#addRestaurant').on('click', function (event) {
-// event.preventDefault();
-// places = $('#inputtable').val().trim();
-//$('#restaurants').append(places + " ");
-//$('#inputtable'),val("");
-//restaurantList.push(places);
-//console.log(restaurantList);
-//});
 
 $('#search-restaurant').on('click', function (event) {
   console.log(restaurantList)
