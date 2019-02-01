@@ -51,11 +51,12 @@ $(document).ready(function() {
     
   $("#reg-submit").on("click", function(event){
     event.preventDefault();
-    console.log("reg submit")
+    console.log("test")
    // userName = validateUserInput().toLowerCase();
 
-    var email = $('#reg-email').val()
-    var password = $('#reg-password').val()
+    var email = $('#reg-email').val().trim()
+    var password = $('#reg-password').val().trim()
+
     firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
       // Handle Errors here.
       var errorCode = error.code;
