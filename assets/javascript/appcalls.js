@@ -1,6 +1,6 @@
 var settings = {
   "async": true,
-  "url": "https://ancient-ocean-97660.herokuapp.com/foursquareWrapper?city=Miami,Fl&query=olivegarden",
+  "url": "https://ancient-ocean-97660.herokuapp.com/foursquareWrapper?city=Miami,Fl&query=burgers",
   "method": "GET",
   "headers": {
     "Content-Type": "application/json",
@@ -16,10 +16,12 @@ $.ajax(settings).done(function (results) {
   var restaurants = results.response.venues;
   console.log(restaurants)
   // Looping through each result item
-  for (var i = 0; i < results.length; i++) {
-
+  for (var i = 0; i < restaurants.length; i++) {
+    console.log(i)
     // Creating and storing a div tag
     var restaurantDiv = $("<div>");
+    $('#recipe-list').append(`<div>${restaurants[i].name}</div>`)
+  
 
   }
 });
@@ -37,7 +39,7 @@ $(".restaurantDiv").on("click", function(event) {
 
   //within function create ajax call
   $.ajax({
-  url: "https://ancient-ocean-97660.herokuapp.com/foursquareWrapper?city=Miami,Fl&query=olivegarden",
+  url: queryURL,
   method: "GET"
 })
 
@@ -67,3 +69,5 @@ $('#search-restaurant').on('click', function (event) {
 //var restaurant = olive garden --> code olive garden and console log response, then grab the response grab object and send to the DIV
 //and give the location of the restaurant 
 //generate images 
+
+
