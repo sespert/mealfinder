@@ -142,3 +142,17 @@ h1{
     margin-top:11%;
     margin-bottom: 10px;
 }
+#register{
+    text-align: center;
+    color:black;
+    font-style:normal;
+    margin-bottom:43px;
+   margin-top:5%;
+}
+#reg-email{
+    outline-color: black;
+}
+#logoreg{
+    height: 200px;
+    margin-top:8%
+}
