@@ -37,11 +37,11 @@ $(".restaurantDiv").on("click", function(event) {
 
   //within function create ajax call
   $.ajax({
-    url: "https://ancient-ocean-97660.herokuapp.com/foursquareWrapper?city=Miami,Fl&query=olivegarden",
-    method: "GET"
-  })
+  url: "https://ancient-ocean-97660.herokuapp.com/foursquareWrapper?city=Miami,Fl&query=olivegarden",
+  method: "GET"
+})
 
-  
+
 });
 
 
