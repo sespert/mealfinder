@@ -30,16 +30,15 @@
             </div>
     </header>
 
-    <p>login</p>
 
-
-    <div>
+    <div id='login-page'>
         <input type='text' id="email" placeholder="email" />
         <input type='password' id="password" placeholder="password" />
         <button type='submit' class='submit-button' id="login">Submit</button>
-    </div>
-    <div>
-        <a href="./registration.html">Need an Account?</a>
+        <div>
+            <a href="registration.html">Need an Account?</a>
+            <span id='error-msg'></span>
+        </div>
     </div>
 
 
@@ -60,6 +59,10 @@
 
     <div id="results-page">
         <div id='recipe-list'></div>
+    </div>
+
+    <div class="sign-out-div">
+        <button type='button' class='sign-out-btn'>Log Out</button>
     </div>
 
     <footer>
