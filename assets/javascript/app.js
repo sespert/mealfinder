@@ -92,6 +92,17 @@ $(document).ready(function() {
       //   }
       // }
   });
+
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      $("#login-page").hide();
+      $('#search-page').show();
+      $(".sign-out-div").show();
+    } else {
+      $(".sign-out-btn").hide();
+      // No user is signed in.
+    }
+  });
   
   $('#login').on('click', function(){
     console.log("in login")
@@ -102,12 +113,26 @@ $(document).ready(function() {
       var errorCode = error.code;
       var errorMessage = error.message;
       if(error){
-        alert(errorMessage)
       }
 
       // ...
     });
 
+    // Check if user is signed in);
+
+  })
+
+
+  $(".sign-out-btn").on('click', function(){
+    console.log("test")
+    firebase.auth().signOut().then(function() {
+      $("#search-page").hide();
+      $(".sign-out-btn").hide();
+      $("#login-page").show();
+
+    }).catch(function(error) {
+
+    });
   })
   //User validation for returning user
 
@@ -140,7 +165,7 @@ $(document).ready(function() {
     //Function to remove an ingredient
     function removeIngredient () {
       //Select the value to be removed by looking at the value of the button clicked
-      var itemToRemove = $(this).closest("div").attr('val');
+      var itemToRemove = $(this).closest("div").attr('id');
       //Save a new array of items by removing the deleted item
       ingredForQuery = arrayRemove(ingredientList, itemToRemove);
       //Remove from ingredient list
