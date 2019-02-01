@@ -95,9 +95,10 @@ $(document).ready(function() {
 
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
+      console.log("test")
       $("#login-page").hide();
       $('#search-page').show();
-      $(".sign-out-div").show();
+      $(".sign-out-btn").show();
     } else {
       $(".sign-out-btn").hide();
       // No user is signed in.
@@ -113,6 +114,7 @@ $(document).ready(function() {
       var errorCode = error.code;
       var errorMessage = error.message;
       if(error){
+        $("#error-msg").text(errorMessage)
       }
 
       // ...
@@ -266,6 +268,11 @@ $(document).ready(function() {
     //Choose favorites by clicking the heart and save it to the database
   
 });
+
+
+$("#search-ingred").on("click", function(){
+  $("#results-page").show();
+})
 
 
 
