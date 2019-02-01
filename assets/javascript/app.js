@@ -217,18 +217,25 @@ $(document).ready(function() {
         }).then(function(results) {
           //Append recipes data to one column
           for (var j=0; j<5; j++) {          
-            var divCard = $('<div class="card-mb-3 w-25">'); 
-            var imageCard =  $('<img class="card-img-top" id="recipeCard">');
+            console.log(results[j].title);
+            console.log(results[j].image);
+            console.log(results[j].id);
+            console.log(results[j])
+            var divCard = $('<div class="card-mb-3 w-25">');
+            var imageCard = $('<img class="card-img-top recipeCard" id="' + results[j].id + '">');
             var bodyCard = $('<div class="card-body">');
             var titleCard = $('<h5 class="card-title">');
             var textCard = $('<p class="card-text">');
             imageCard.attr("src", results[j].image);
-            imageCard.attr("val", results[j].id);          
+            //imageCard.attr("val", results[j].id);          
             titleCard.text(results[j].title);
             textCard.text("Cost: $");
             bodyCard.append(titleCard, textCard);
             divCard.append(imageCard, bodyCard);
-            $("#recipe-list").prepend(divCard);
+            $("#recipe-list").append(divCard);
+            document.getElementById(results[j].id).addEventListener("click", function(event){
+              showRecipe(event.target.id)
+            })
           }
         })
   
@@ -248,14 +255,7 @@ $(document).ready(function() {
   
     };
     
-    //When clicking on a recipe, a new box appears with the ingredients and steps
-    $("#recipeCard").on('click', function () {
-      alert("image clicked!");
-      console.log("Value: " + itemNumber);
-      var itemNumber = $("#recipeCard").attr('val');
-      showRecipe(itemNumber);
-  
-    });
+    
   
     //Append restaurants to another column
     //Use googlemaps API for distance
