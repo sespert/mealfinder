@@ -14,8 +14,9 @@ Four Squares: Places, Venue & Restaurant Search
 Contributions:
 API Meal Finder- Shirley 
 API Restaurants- Juliette 
+Javascript- Shirley & Juliette
 Firebase & Login- Anthony & Kayla
-Styling CSS- Anthony & Kayla 
+Styling CSS- Anthony, Kayla & Juliette 
 
 Copyright: 
 Shirley Espert Galarce, Juliette Amador, Anthony Ham, Kayla Gilchrist
