@@ -270,7 +270,19 @@ $(document).ready(function() {
             for (var k=0;k<result.analyzedInstructions[0].steps.length;k++) {
               steps.append("<li>" + result.analyzedInstructions[0].steps[k].step + "</li>");
             }
-
+            
+            if(result.cuisines.length != 0) {
+              console.log("Cuisines " + result.cuisines[0]);
+              showRestaurants(result.cuisines[0]);
+            } else if (result.diets.length != 0) {
+              console.log("Diets" + result.diets[0]);
+              showRestaurants(result.diets[0]);
+            } else {
+              title.text("Try another recipe to see restaurants");
+              $("#recipes-page").show();
+              $("#recipes-page").append(title);
+            }
+            
             $("#recipes-page").show();
             $("#recipes-page").append(title, details, ingredList, steps);
 
@@ -289,9 +301,38 @@ $(document).ready(function() {
     };
     
   
-    //Append restaurants to another column
-    //Use googlemaps API for distance
-  
+    function showRestaurants(string){
+      var queryURLrest = "https://ancient-ocean-97660.herokuapp.com/foursquareWrapper?city=Miami,Fl&query=" + string;
+      var settings = {
+        "async": true,
+        "url": queryURLrest,
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/json",
+          "cache-control": "no-cache",
+          "Postman-Token": "f1aabd14-c1f5-4f45-b2e4-a88fadeddc62"
+        },
+        "processData": false,
+        "data": ""
+      }
+      console.log(settings);
+      $.ajax(settings).done(function (results) {
+ 
+        var restaurants = results.response.venues;
+        console.log(restaurants)
+        // Looping through each result item
+        for (var i = 0; i < 5; i++) {
+          console.log(i)
+          // Creating and storing a div tag
+          var restaurantDiv = $("<div>");
+          $('#recipes-page').append(`<div>${restaurants[i].name}</div>`)
+        
+      
+        }
+      });
+    }
+
+    
   
     //When clicking on the restaurants ????
   
