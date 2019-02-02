@@ -175,3 +175,8 @@ h1{
 #error-msg {
     color: red;
 }
+
+#ingredients {
+    display: flex;
+  
+}
