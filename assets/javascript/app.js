@@ -4,9 +4,9 @@ $(document).ready(function() {
   var ingredientList = [];
   var ingredForQuery = [];
   var items;
+  var numOfRec = 5;
   //var itemID =[];
-  var apiKey = "5xw4QaTb3Wmsh8AQrQQBKOLf93yXp10FyXNjsnN6kLNdE5w3P6";
-  var queryURLRecipes = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ranking=1&ingredients=" 
+  
   
   $("#search-page").hide();
   $("#results-page").hide();
@@ -204,13 +204,19 @@ $(document).ready(function() {
       $("#results-page").show();
       console.log(ingredForQuery);
       //Function to search recipes
-      searchRecipes(ingredForQuery);
+      searchRecipes(numOfRec, ingredForQuery);
+
+
     });
 
+    var apiKey = "5xw4QaTb3Wmsh8AQrQQBKOLf93yXp10FyXNjsnN6kLNdE5w3P6";
     
   
     //Send the array to recipe search query of the API
-    function searchRecipes(arr) {
+    function searchRecipes(num, arr) {
+      var queryURLRecipes = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=" + num +
+                          "&ranking=1&ingredients=" ;
+      console.log(queryURLRecipes);
       //var ingredientList = arr.toString();
       for (var i=0; i<arr.length;i++) {
         queryURLRecipes = queryURLRecipes + "%2C" + arr[i];
@@ -222,7 +228,7 @@ $(document).ready(function() {
         headers: ({"X-Mashape-Key": apiKey})  
         }).then(function(results) {
           //Append recipes data to one column
-          for (var j=0; j<5; j++) {
+          for (var j=0; j<num; j++) {
             var divCard = $('<div class="card-mb-3 w-25">');
             var imageCard = $('<img class="card-img-top recipeCard" id="' + results[j].id + '">');
             var bodyCard = $('<div class="card-body">');
@@ -236,8 +242,19 @@ $(document).ready(function() {
             $("#recipe-list").append(divCard);
           }
         })
+
+       
   
     };
+
+    
+    $("#moreRecipes").on("click", function() {
+      $('#recipe-list').empty();
+      numOfRec = numOfRec + 5;
+      console.log(numOfRec);
+      searchRecipes(numOfRec, ingredForQuery);
+    });
+
     $(document).on("click", ".recipeCard", function() {
       var state = $(this).attr("id");
       showRecipe(state);
