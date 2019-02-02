@@ -4,7 +4,7 @@ $(document).ready(function() {
   var ingredientList = [];
   var ingredForQuery = [];
   var items;
-  var numOfRec = 5;
+  var numOfRec = 4;
   //var itemID =[];
   
   
@@ -230,13 +230,12 @@ $(document).ready(function() {
           //Append recipes data to one column
           for (var j=0; j<num; j++) {
             var divCard = $('<div class="card-mb-3 w-25">');
-            var imageCard = $('<img class="card-img-top recipeCard" id="' + results[j].id + '">');
+            var imageCard = $('<img class="card-img-top recipeCard">');
             var bodyCard = $('<div class="card-body">');
             var titleCard = $('<h3 class="card-title">');
             titleCard.text(results[j].title);
-            //var textCard = $('<p class="card-text">');
-            // textCard.text("Cost: $");
             imageCard.attr("src", results[j].image);
+            imageCard.attr("data-recipe-id", results[j].id);
             bodyCard.append(titleCard);
             divCard.append(imageCard, bodyCard);
             $("#recipe-list").append(divCard);
@@ -250,13 +249,13 @@ $(document).ready(function() {
     
     $("#moreRecipes").on("click", function() {
       $('#recipe-list').empty();
-      numOfRec = numOfRec + 5;
+      numOfRec = numOfRec + 4;
       console.log(numOfRec);
       searchRecipes(numOfRec, ingredForQuery);
     });
 
     $(document).on("click", ".recipeCard", function() {
-      var state = $(this).attr("id");
+      var state = $(this).attr("data-recipe-id");
       showRecipe(state);
     })
   
@@ -268,7 +267,7 @@ $(document).ready(function() {
         method: "GET",
         headers: ({"X-Mashape-Key": apiKey})  
         }).then(function(result) {
-
+          var divRecipe = $('<div class="card-mb-3 w-25">');
           var title = $("<h4 class='display-4'>");
           var details = $("<p class='lead'>");
           var ingredList = $("<ul>");
@@ -301,7 +300,9 @@ $(document).ready(function() {
             }
             
             $("#recipes-page").show();
-            $("#recipes-page").append(title, details, ingredList, steps);
+            
+            divRecipe.append(title, details, ingredList, steps);
+            $("#collapseRecipe").append(divRecipe);
 
       
           } else {
