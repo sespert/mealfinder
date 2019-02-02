@@ -1,3 +1,5 @@
+$(document).ready(function() {
+
 var settings = {
   "async": true,
   "url": "https://ancient-ocean-97660.herokuapp.com/foursquareWrapper?city=Miami,Fl&query=burgers",
@@ -11,12 +13,16 @@ var settings = {
   "data": ""
 }
 
+
+
+
+
 $.ajax(settings).done(function (results) {
  
   var restaurants = results.response.venues;
   console.log(restaurants)
   // Looping through each result item
-  for (var i = 0; i < restaurants.length; i++) {
+  for (var i = 0; i < 5; i++) {
     console.log(i)
     // Creating and storing a div tag
     var restaurantDiv = $("<div>");
@@ -26,40 +32,40 @@ $.ajax(settings).done(function (results) {
   }
 });
 
-$(".restaurantDiv").on("click", function(event) {
+// $(".restaurantDiv").on("click", function(event) {
 
-// <div class="restaurantDiv" data-name="Outback Steak House"> </div>
+// // <div class="restaurantDiv" data-name="Outback Steak House"> </div>
 
-  var restaurant = $(this).data('name'); 
-  console.log(restaurant);
+//   var restaurant = $(this).data('name'); 
+//   console.log(restaurant);
   
-  var queryURL = "https://ancient-ocean-97660.herokuapp.com/foursquareWrapper?city=Miami,Fl&query=" + restaurant
+//   var queryURL = "https://ancient-ocean-97660.herokuapp.com/foursquareWrapper?city=Miami,Fl&query=" + restaurant
 
-  setting['url'] = queryURL;
+//   setting['url'] = queryURL;
 
-  //within function create ajax call
-  $.ajax({
-  url: queryURL,
-  method: "GET"
-})
+//   //within function create ajax call
+//   $.ajax({
+//   url: queryURL,
+//   method: "GET"
+// })
+
+
+// });
+
+
+// var restaurantList = [];
+// var restaurant = [];
+
+
+
+
+// $('#search-restaurant').on('click', function (event) {
+//   console.log(restaurantList)
+// })
+
 
 
 });
-
-
-var restaurantList = [];
-var restaurant = [];
-
-
-
-
-$('#search-restaurant').on('click', function (event) {
-  console.log(restaurantList)
-})
-
-
-
-
 
 
 
