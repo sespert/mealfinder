@@ -302,7 +302,7 @@ $(document).ready(function() {
             $("#recipes-page").show();
             
             divRecipe.append(title, details, ingredList, steps);
-            $("#collapseRecipe").append(divRecipe);
+            $("#recipes-page").append(divRecipe);
 
       
           } else {
