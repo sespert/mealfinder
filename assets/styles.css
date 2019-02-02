@@ -21,7 +21,6 @@ body {
 
 #logo {
     height: 200px;
-    margin: 2%;
     margin-top: 10%;
     margin-bottom: 10px;
 }
@@ -33,6 +32,12 @@ body {
 
 .header-break {
     border: .5px solid black;
+}
+
+.header {
+    text-align: center;
+    margin: 0;
+    
 }
 
 #delete {
@@ -146,6 +151,11 @@ form div.active {
     margin-top: 3%;
 }
 
+.sign-out-btn {
+    outline: black;
+    border-radius: 30px;
+}
+
 .search-page-button {
     outline: black;
     width: 12%;
@@ -175,21 +185,13 @@ h1 {
     margin-bottom: 10px;
 }
 
-#register {
-    text-align: center;
-    color: black;
-    font-style: normal;
-    margin-bottom: 43px;
-    margin-top: 5%;
-}
-
 #email, #password {
     outline: none;
     border-radius: 10px;
 }
 
-#reg-email {
-    outline-color: black;
+#reg-email, #reg-password {
+    outline: none;
 }
 
 #logoreg {

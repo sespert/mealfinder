@@ -4,52 +4,51 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Meal Finder</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--Jquery-->
+    <!-- Jquery-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- //Path to bootsrap -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
+
     <!-- Firebase JS -->
     <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
         crossorigin="anonymous">
+    <!-- Local CSS-->
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/styles.css" />
+
     <!-- Local Js-->
     <script src="assets/javascript/app.js"></script>
-    <script src="assets/javascript/appcalls.js"></script>
-    <title>Document</title>
-     <!-- Firebase JS -->
-     <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
-     <!-- Bootstrap CSS -->
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-         crossorigin="anonymous">
-     <!-- Local CSS-->
-     <link rel="stylesheet" type="text/css" media="screen" href="assets/styles.css" />
-     
-     <!--Jquery-->
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-     <!-- Local Js-->
-     <script src="assets/javascript/app.js"></script>
-     <script src="assets/javascript/appcalls.js"></script>
-    
+
+
 </head>
 
 <body>
 
-        <img id="logoreg" src="./assets/images/logo-notext.png" alt="Meal finder logo">
-                <h1 id="register">Register</h1>
-                 <form>
-                        <input type='text' id= "reg-email" placeholder="email"/>
-                        <input type='password' id="reg-password" placeholder="password"/>
-                        <button type='submit' class='submit-button' id="reg-submit">Submit</button>
-                    
-                    
-                         
-                 </form>
-<footer>
-        
-<small>&copy; Copyright 2019, Meal Finder</small>
-                                  
-                           
-</footer>
+    <div class="wrapper container text-center">
+        <!-- Header -->
+        <header>
+            <div class="row">
+                <div class="col">
+                    <img id="logo" src="./assets/images/logo.png" alt="Meal Finder Logo">
+                </div>
+        </header>
+
+        <form>
+            <input type='text' id="reg-email" placeholder="email" />
+            <input type='password' id="reg-password" placeholder="password" />
+            <button type='submit' class='submit-button' id="reg-submit">Register</button>
+        </form>
+        <div class="push"></div>
+    </div>
+
+    <div id='footer'>
+        <small>&copy; Copyright 2019, Meal Finder</small>
+    </div>
 
 </body>
 
