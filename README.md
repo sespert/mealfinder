@@ -5,7 +5,8 @@ Enter the foods you currently have in your refrigerator, into our app and compar
 Tech/Framed Used: 
 HTML, CSS, JavaScript, JQuery, Firebase & AJAX
 
-****New Technology: POPOVERS?
+New Technology: 
+Firebase Authenticating Tool for the Login
 
 API Reference: 
 MarketPlace: Meal Finder 
