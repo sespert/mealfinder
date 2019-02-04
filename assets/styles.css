@@ -127,9 +127,8 @@ form div.active {
 .wrapper {
     margin: 0 auto;
     padding-top: 64px;
-    max-width: 640px;
+    max-width: 85%;
     width: 94%;
-    /* the bottom margin is the negative value of the footer's height */
 }
 
 #footer {
@@ -144,11 +143,9 @@ form div.active {
 }
 
 .add-item {
-    outline: black;
-    width: 12%;
-    height: 2%;
+    outline: none;
+    width: 50px;
     border-radius: 30px;
-    margin-top: 3%;
 }
 
 .sign-out-btn {
@@ -157,11 +154,9 @@ form div.active {
 }
 
 .search-page-button {
-    outline: black;
-    width: 12%;
-    height: 2%;
+    outline: none;
+    width: 50px;
     border-radius: 30px;
-    margin-top: 3%;
 }
 
 h2 {
@@ -200,8 +195,7 @@ h1 {
 }
 
 #recipe-list {
-    outline: 5px solid black;
-    border-radius: 10px;
+    
 }
 
 #account {
@@ -214,4 +208,36 @@ h1 {
 
 #ingredients {
     display: flex;
+}
+
+#results-page {
+
+
+}
+
+#moreRecipes {
+    outline: none;
+    border-radius: 30px;
+}
+
+.recipes {
+    padding: 20px;
+    background-color: #efefef;
+    border-radius: 20px;
+}
+
+.restaurants {
+    padding:20px;
+    background-color: #efefef;
+    border-radius: 20px;
+
+}
+
+#rest-text {
+    color: black;
+
+}
+
+#recipe-text {
+    color: black;
 }
