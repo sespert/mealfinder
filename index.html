@@ -16,10 +16,13 @@
     <!-- Firebase JS -->
     <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
         crossorigin="anonymous">
     <!-- Local CSS-->
     <link rel="stylesheet" type="text/css" media="screen" href="assets/styles.css" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+        crossorigin="anonymous">
 
     <!-- Local Js-->
     <script src="assets/javascript/app.js"></script>
@@ -56,21 +59,43 @@
         <!-- Search Page -->
         <div id="search-page">
             <form action="">
-                <button type="button" class="add-item">Add</button>
+                <button type="button" class="add-item"><i class="fas fa-plus"></i></button>
                 <input type='text' class="ingredientToSearch" id="user-input" />
-                <button class='search-page-button' id="search-ingred">Search</button>
+                <button class='search-page-button' id="search-ingred"><i class="fas fa-search"></i></button>
             </form>
             <br>
             <div id="ingredients"></div>
         </div>
         <!-- Results Page -->
         <div id="results-page">
-            <div id="recipe-list"></div>
-            <div class="col-lg-4">
-                <button id="moreRecipes">Add More Recipes Please</button>
+            <div class='row'>
+                <div id="recipe-list"></div>
+            </div>
+            <button id="moreRecipes">Load More Recipes</button>
+        </div>
+        <br>
+        <div class="results-wrapper container">
+            <!-- Restaurants -->
+            <div class="row">
+                <div class="col">
+                    <div class="restaurants">
+                        <h1 class='lead' id='rest-text'>Restaurants</h1>
+                        <div id="restaurants">
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="col">
+                    <!-- Recipes Instructions -->
+                    <div class="recipes">
+                        <h1 class='lead black' id='recipe-text'>Recipes</h1>
+                        <div class='text-lefts' id="recipes-page">
+                        </div>
+                    </div>
+                    <br>
+                </div>
             </div>
         </div>
-        <div class="jumbotron text-left" id="recipes-page"></div>
 
         <!-- Log Out Button-->
         <div class="sign-out-div">

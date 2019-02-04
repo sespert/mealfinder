@@ -7,10 +7,10 @@ $(document).ready(function() {
   var numOfRec = 4;
   //var itemID =[];
   
-  
+  $(".restaurants").hide();
   $("#search-page").hide();
   $("#results-page").hide();
-  $("#recipes-page").hide();
+  $(".recipes").hide();
 
   // Initiate Firebase
   var config = {
@@ -133,6 +133,10 @@ $(document).ready(function() {
       $("#search-page").hide();
       $(".sign-out-btn").hide();
       $("#login-page").show();
+      $(".restaurants").hide();
+      $("#search-page").hide();
+      $("#results-page").hide();
+      $(".recipes").hide();
 
     }).catch(function(error) {
 
@@ -221,6 +225,8 @@ $(document).ready(function() {
       for (var i=0; i<arr.length;i++) {
         queryURLRecipes = queryURLRecipes + "%2C" + arr[i];
       }
+
+      var row = $("<div class='row'>")
   
       $.ajax({
         url: queryURLRecipes,
@@ -229,8 +235,8 @@ $(document).ready(function() {
         }).then(function(results) {
           //Append recipes data to one column
           for (var j=0; j<num; j++) {
-            var divCard = $('<div class="card-mb-3 w-25">');
-            var imageCard = $('<img class="card-img-top recipeCard">');
+            var divCard = $('<div class="col">');
+            var imageCard = $('<img class="card-img-top recipeCard" id="' + results[j].id + '">');
             var bodyCard = $('<div class="card-body">');
             var titleCard = $('<h3 class="card-title">');
             titleCard.text(results[j].title);
@@ -238,7 +244,8 @@ $(document).ready(function() {
             imageCard.attr("data-recipe-id", results[j].id);
             bodyCard.append(titleCard);
             divCard.append(imageCard, bodyCard);
-            $("#recipe-list").append(divCard);
+            row.append(divCard)
+            $("#recipe-list").append(row);
           }
         })
 
@@ -255,7 +262,9 @@ $(document).ready(function() {
     });
 
     $(document).on("click", ".recipeCard", function() {
-      var state = $(this).attr("data-recipe-id");
+      var state = $(this).attr("id");
+      $("#recipes-page").empty();
+      $("#restaurants").empty();
       showRecipe(state);
     })
   
@@ -275,6 +284,8 @@ $(document).ready(function() {
 
           if (result.analyzedInstructions.length != 0) {
             //$("#results-page").hide();
+            
+            $(".recipes").show();
           
             title.text(result.title);
             details.text("Servings: " + result.servings + "   Preparation time: " + result.readyInMinutes);
@@ -334,7 +345,9 @@ $(document).ready(function() {
         "data": ""
       }
       console.log(settings);
+      $(".restaurants").show();
       $.ajax(settings).done(function (results) {
+        console.log(results)
  
         var restaurants = results.response.venues;
         console.log(restaurants)
@@ -343,7 +356,7 @@ $(document).ready(function() {
           console.log(i)
           // Creating and storing a div tag
           var restaurantDiv = $("<div>");
-          $('#recipes-page').append(`<div>${restaurants[i].name}</div>`)
+          $('#restaurants').append(`<div>${restaurants[i].name}</div>`)
         
       
         }
