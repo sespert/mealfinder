@@ -37,7 +37,6 @@ body {
 .header {
     text-align: center;
     margin: 0;
-    
 }
 
 #delete {
@@ -46,7 +45,7 @@ body {
     font-weight: bold;
 }
 
-#ingredients div {
+#ingredients div, #city div  {
     border: 1px solid grey;
     font-size: 18px;
     box-sizing: border-box;
@@ -79,44 +78,29 @@ body {
     border-radius: 30px;
 }
 
-/* form {
-    position: relative;
+.gologin-button, #new-account {
+    outline: black;
+    width: 15%;
+    height: 2%;
+    margin-top: 4%;
+    border-radius: 30px;
 }
 
-form div {
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    overflow: hidden;
-} */
+#moreRecipes,  #search-again {
+    outline: black;
+    width: 15%;
+    height: 10%;
+    margin-top: 4%;
+    border-radius: 30px;
+}
 
 form div.active {
     left: 0;
 }
 
-#username {
-    padding-left: 44%;
-    padding-bottom: 10px;
-}
-
-#username2 {
-    padding-left: 44%;
-    padding-bottom: 50px;
-}
-
 #search-items {
     padding-left: 44%;
 }
-
-#user-input {
-    outline: black;
-    border-radius: 30px;
-}
-
-/* .container-fluid {
-    position: relative;
-} */
 
 .container {
     position: relative;
@@ -131,24 +115,14 @@ form div.active {
     width: 94%;
 }
 
-#footer {
-    position: absolute;
-    color: grey;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    padding: 1rem;
-    background-color: #efefef;
-    text-align: center;
-}
 
-.add-item {
+.add-item, .add-city  {
     outline: none;
     width: 50px;
     border-radius: 30px;
 }
 
-.sign-out-btn {
+.sign-out-btn, .fav-btn  {
     outline: black;
     border-radius: 30px;
 }
@@ -180,22 +154,14 @@ h1 {
     margin-bottom: 10px;
 }
 
-#email, #password {
+#email, #password, #reg-email, #reg-password, .ingredientToSearch, .cityToSearch {
     outline: none;
     border-radius: 10px;
 }
 
-#reg-email, #reg-password {
-    outline: none;
-}
-
 #logoreg {
     height: 200px;
-    margin-top: 8%
-}
-
-#recipe-list {
-    
+    margin-top: 8%;
 }
 
 #account {
@@ -210,16 +176,6 @@ h1 {
     display: flex;
 }
 
-#results-page {
-
-
-}
-
-#moreRecipes {
-    outline: none;
-    border-radius: 30px;
-}
-
 .recipes {
     padding: 20px;
     background-color: #efefef;
@@ -230,14 +186,27 @@ h1 {
     padding:20px;
     background-color: #efefef;
     border-radius: 20px;
-
 }
 
 #rest-text {
     color: black;
-
 }
 
 #recipe-text {
     color: black;
+}
+
+#recipeInstr {
+    text-align: left;
+}
+
+#footer {
+    position: absolute;
+    color: grey;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    background-color: #efefef;
+    text-align: center;
 }

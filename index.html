@@ -8,11 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Jquery-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-    <!-- //Path to bootsrap -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
-        crossorigin="anonymous"></script>
-
+    <!--Path to bootsrap JS-->
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" -->
+        <!-- crossorigin="anonymous"></script> -->
     <!-- Firebase JS -->
     <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
     <!-- Bootstrap CSS -->
@@ -23,11 +21,8 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
         crossorigin="anonymous">
-
     <!-- Local Js-->
     <script src="assets/javascript/app.js"></script>
-
-
 </head>
 
 <body>
@@ -40,7 +35,6 @@
                 </div>
         </header>
 
-
         <!-- Login Page -->
         <div id='login-page'>
             <input type='text' id="email" placeholder="email" />
@@ -50,66 +44,118 @@
             <button type='submit' class='submit-button' id="login">Log In</button>
             <div>
                 <br>
-                <a id='account' href="registration.html">Need an Account?</a>
+                <button type='submit' class='submit-button' id="new-account">Need an Account?</button>
+
+                <!-- <a id='account' href="registration.html">Need an Account?</a>  SHer Removed-->
                 <br>
                 <span id='error-msg'></span>
             </div>
         </div>
 
+        <!-- Registration Page -->
+        <div id="registration-page">
+            <form>
+                <input type='text' id="reg-email" placeholder="email" />
+                <input type='password' id="reg-password" placeholder="password" />
+                <button type='submit' class='submit-button' id="reg-submit">Register</button>
+                <br>
+                <br>
+                <button type='submit' class='gologin-button' id="login">Go to Login Page</button>
+            </form>
+            <div class="push"></div>
+        </div>
+
         <!-- Search Page -->
         <div id="search-page">
             <form action="">
+                <input type='text' class="ingredientToSearch" id="user-input" placeholder="ingredient"/>
                 <button type="button" class="add-item"><i class="fas fa-plus"></i></button>
-                <input type='text' class="ingredientToSearch" id="user-input" />
+                <br>
+                <br>
+                <input type='text' class="cityToSearch" id="city-input" placeholder="your current city"/>
+                <button type="button" class="add-city"><i class="fas fa-plus"></i></button>
+
+                <h4 id="alertCity"></h4>
+                <br>
                 <button class='search-page-button' id="search-ingred"><i class="fas fa-search"></i></button>
             </form>
             <br>
+            <br>
+            <button type='button' class='fav-btn'>Favorites</button>
+            <br>
+            <br>        
             <div id="ingredients"></div>
+            <br>
+            <br>
+            <div id="city"></div>
+            <br>
+            <br>
+            <br>
+            <button type='button' class='sign-out-btn'>Log Out</button>
         </div>
+
+        <!-- Favorites Page -->
+        <div id="favorites-page">
+            <div class="row">
+                <div class="col">
+                    <h3>Your Favorite Recipes</h3>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row" id="favorites-list"></div>    
+            </div>         
+            <br>
+            <br>
+            <button type='button' id='search-again'>Search More Recipes</button>     
+            <br>
+            <br>
+            <button type='button' class='sign-out-btn'>Log Out</button>            
+        </div>
+
         <!-- Results Page -->
         <div id="results-page">
             <div class='row'>
                 <div id="recipe-list"></div>
             </div>
-            <button id="moreRecipes">Load More Recipes</button>
-        </div>
-        <br>
-        <div class="results-wrapper container">
-            <!-- Restaurants -->
-            <div class="row">
-                <div class="col">
-                    <div class="restaurants">
-                        <h1 class='lead' id='rest-text'>Restaurants</h1>
-                        <div id="restaurants">
-                        </div>
-                    </div>
-                </div>
-                <br>
-                <div class="col">
-                    <!-- Recipes Instructions -->
-                    <div class="recipes">
-                        <h1 class='lead black' id='recipe-text'>Recipes</h1>
-                        <div class='text-lefts' id="recipes-page">
+            <div id="resultsButtons">
+                <button id="moreRecipes">Load More Recipes</button>
+                <button type='button' class='fav-btn'>Favorites</button>
+            </div>
+            <br>
+            <br>
+            <div class="results-wrapper container">
+                <!-- Restaurants -->
+                <div class="row">
+                    <div class="col">
+                        <div class="restaurants">
+                            <h1 class='lead' id='rest-text'>Restaurants In Your City</h1>
+                            <div id="restaurants">
+                            </div>
+
                         </div>
                     </div>
                     <br>
+                    <div class="col">
+                        <!-- Recipes Instructions -->
+                        <div class="recipes">
+                            <h1 class='lead black' id='recipe-text'>Recipe</h1>
+                            <div class='text-lefts' id="recipes-page"></div>
+                        </div>
+                        <br>
+                    </div>
                 </div>
+            </div>
+            <div id="log-out-btn-res">
+                <button type='button' class='sign-out-btn'>Log Out</button>           
             </div>
         </div>
 
-        <!-- Log Out Button-->
-        <div class="sign-out-div">
-            <button type='button' class='sign-out-btn'>Log Out</button>
-        </div>
-
-        <div class="push"></div>
-
-    </div>
+    </div>   
 
     <!-- Footer -->
     <div id='footer'>
         <small>&copy; Copyright 2019, Meal Finder</small>
     </div>
-</body>
 
+</body>
 </html>
