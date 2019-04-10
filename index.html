@@ -10,7 +10,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!--Path to bootsrap JS-->
     <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" -->
-        <!-- crossorigin="anonymous"></script> -->
+    <!-- crossorigin="anonymous"></script> -->
     <!-- Firebase JS -->
     <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
     <!-- Bootstrap CSS -->
@@ -29,30 +29,35 @@
     <div class="wrapper container text-center">
         <!-- Header -->
         <header>
-            <div class="row">
-                <div class="col">
-                    <img id="logo" src="./assets/images/logo.png" alt="Meal Finder Logo">
-                </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <img id="logo" src="./assets/images/logo.png" alt="Meal Finder Logo">
+                    </div>
         </header>
 
         <!-- Login Page -->
-        <div id='login-page'>
-            <input type='text' id="email" placeholder="email" />
-            <input type='password' id="password" placeholder="password" />
-            <br>
-            <br>
-            <button type='submit' class='submit-button' id="login">Log In</button>
-            <div>
+        <div class="container">
+            <h1>"Food is for eating, and good food is to be enjoyed"</h1>
+            <div id='login-page'>
+                <input type='text' id="email" placeholder="email" />
+                <input type='password' id="password" placeholder="password" />
                 <br>
-                <button type='submit' class='submit-button' id="new-account">Need an Account?</button>
+                <br>
+                <button type='submit' class='submit-button' id="login">Log In</button>
+                <div>
+                    <br>
+                    <button type='submit' class='submit-button' id="new-account">Need an Account?</button>
 
-                <!-- <a id='account' href="registration.html">Need an Account?</a>  SHer Removed-->
-                <br>
-                <span id='error-msg'></span>
+                    <!-- <a id='account' href="registration.html">Need an Account?</a>  SHer Removed-->
+                    <br>
+                    <span id='error-msg'></span>
+                </div>
             </div>
         </div>
 
         <!-- Registration Page -->
+
         <div id="registration-page">
             <form>
                 <input type='text' id="reg-email" placeholder="email" />
@@ -65,14 +70,15 @@
             <div class="push"></div>
         </div>
 
+
         <!-- Search Page -->
         <div id="search-page">
             <form action="">
-                <input type='text' class="ingredientToSearch" id="user-input" placeholder="ingredient"/>
+                <input type='text' class="ingredientToSearch" id="user-input" placeholder="ingredient" />
                 <button type="button" class="add-item"><i class="fas fa-plus"></i></button>
                 <br>
                 <br>
-                <input type='text' class="cityToSearch" id="city-input" placeholder="your current city"/>
+                <input type='text' class="cityToSearch" id="city-input" placeholder="your current city" />
                 <button type="button" class="add-city"><i class="fas fa-plus"></i></button>
 
                 <h4 id="alertCity"></h4>
@@ -83,7 +89,7 @@
             <br>
             <button type='button' class='fav-btn'>Favorites</button>
             <br>
-            <br>        
+            <br>
             <div id="ingredients"></div>
             <br>
             <br>
@@ -94,6 +100,7 @@
             <button type='button' class='sign-out-btn'>Log Out</button>
         </div>
 
+
         <!-- Favorites Page -->
         <div id="favorites-page">
             <div class="row">
@@ -102,14 +109,14 @@
                 </div>
             </div>
             <div class="container">
-                <div class="row" id="favorites-list"></div>    
-            </div>         
+                <div class="row" id="favorites-list"></div>
+            </div>
             <br>
             <br>
-            <button type='button' id='search-again'>Search More Recipes</button>     
+            <button type='button' id='search-again'>Search More Recipes</button>
             <br>
             <br>
-            <button type='button' class='sign-out-btn'>Log Out</button>            
+            <button type='button' class='sign-out-btn'>Log Out</button>
         </div>
 
         <!-- Results Page -->
@@ -146,16 +153,17 @@
                 </div>
             </div>
             <div id="log-out-btn-res">
-                <button type='button' class='sign-out-btn'>Log Out</button>           
+                <button type='button' class='sign-out-btn'>Log Out</button>
             </div>
         </div>
 
-    </div>   
+    </div>
 
     <!-- Footer -->
     <div id='footer'>
         <small>&copy; Copyright 2019, Meal Finder</small>
     </div>
-
+</div>
 </body>
+
 </html>
