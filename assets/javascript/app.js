@@ -5,7 +5,7 @@ $(document).ready(function() {
   var cityForRestaurants;
   var items;
   var numOfRec = 4;
-  var apiKey = "5xw4QaTb3Wmsh8AQrQQBKOLf93yXp10FyXNjsnN6kLNdE5w3P6";
+  var apiKey = process.env.KEY;
   var userID;
 
   //Hide divs from login page
@@ -188,6 +188,12 @@ $(document).ready(function() {
   //When ready to search, user presses search button to display recipes and restaurants
   $("#search-ingred").on('click', function (event) {
     event.preventDefault();
+    
+    $("#recipe-list").empty();
+    $("#resultsButtons").show();
+    $("#restaurants").empty();
+    $(".restaurants").show();
+    $("#log-out-btn-res").show();
 
     if (!cityForRestaurants) {
       $("#alertCity").text("Please enter your city");
@@ -196,7 +202,9 @@ $(document).ready(function() {
       $("#login-page").hide();
       $("#search-page").hide();
       //Show results div that's going to be populated with list of recipes and restaurants
-      $("#results-page").show();      
+      $("#results-page").show(); 
+      $(".recipes").show();
+      $("#recipes-page").show();
       //Function to search recipes
       searchRecipes(numOfRec, ingredForQuery);
 
@@ -206,6 +214,8 @@ $(document).ready(function() {
 
   //Send the array to recipe search query of the API
   function searchRecipes(num, arr) {
+    
+
     var queryURLRecipes = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=" + num + "&ranking=1&ingredients=" ;
       
     console.log(queryURLRecipes);      
@@ -227,7 +237,7 @@ $(document).ready(function() {
           // var imageCard = $('<img class="card-img-top recipeCard" id="' + results[j].id + '">');REMOVED SHER
           var imageCard = $('<img class="card-img-top recipeCard">');
           var bodyCard = $('<div class="card-body">');
-          var titleCard = $('<h3 class="card-title">');
+          var titleCard = $('<h5 class="card-title">');
           titleCard.text(results[j].title);
           imageCard.attr("src", results[j].image);
           imageCard.attr("data-recipe-id", results[j].id);
@@ -257,6 +267,7 @@ $(document).ready(function() {
   //Function to display ingredients and steps of the recipe chosen
   function showRecipe(num) {
     $("#recipes-page").empty();
+    $("#restaurants").empty();
     var queryURLinstr = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" + num + "/information"
       
     $.ajax({
@@ -336,7 +347,6 @@ $(document).ready(function() {
       console.log(restaurants);
       // Looping through each result item
       for (var i = 0; i < 5; i++) {
-        console.log(i)
         // Creating and storing a div tag
         var restaurantHead = $("<h5>");
         restaurantHead.text(restaurants[i].name);
@@ -380,7 +390,7 @@ $(document).ready(function() {
           var divCard = $('<div class="col">');
           var imageCard = $('<img class="card-img-top favoriteCard">');
           var bodyCard = $('<div class="card-body">');
-          var titleCard = $('<h3 class="card-title">');
+          var titleCard = $('<h5 class="card-title">');
           titleCard.text(results.title);
           imageCard.attr("src", results.image);
           imageCard.attr("data-recipe-id", results.id);
@@ -414,14 +424,14 @@ $(document).ready(function() {
   $("#search-again").on("click", function() {
     $("#search-page").show();
     $("#favorites-page").hide();
-    $(".recipes").empty();
+    $("#recipes-page").empty();
     $(".recipes").hide();
-
+    $("#recipes-page").hide();
 
   }); 
   //In the favorites page, click on an image to display recipe
   $(document).on("click", ".favoriteCard", function() {
-    $(".recipes").empty();
+    $("#recipes-page").empty();
     var state = $(this).attr("data-recipe-id");
     showRecipeFromFav(state);
   })
@@ -459,14 +469,14 @@ $(document).ready(function() {
             steps.append("<li>" + result.analyzedInstructions[0].steps[k].step + "</li>");
           }
           
-          $(".recipes").show();          
+          $("#recipes-page").show();          
           divRecipe.append(title, details, ingredList, steps);
-          $(".recipes").append(divRecipe);
+          $("#recipes-page").append(divRecipe);
     
       } else {
         title.text("This recipe is no longer available. Try another one");
-        $(".recipes").show();        
-        $(".recipes").append(title);
+        $("#recipes-page").show();        
+        $("#recipes-page").append(title);
       }         
       console.log(result);
       });

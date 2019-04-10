@@ -141,10 +141,12 @@ h2 {
 }
 
 h1 {
-    color: white;
+    color:green;
     font-style: italic;
     font-weight: 600;
-    font-size: 70px;
+    font-size: 20px;
+    padding-bottom: 2%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 #logosearch {
@@ -202,11 +204,23 @@ h1 {
 
 #footer {
     position: absolute;
-    color: grey;
+    color:black;
     right: 0;
     bottom: 0;
     left: 0;
     padding: 1rem;
     background-color: #efefef;
     text-align: center;
+    background-color: green;
+}
+
+body{
+    background-image: url(./images/veggies-and-cutting-board.jpg);
+}
+
+.container{
+    background-color: white;
+    shape-margin: 5%;
+    margin-top: 30px;
+
 }

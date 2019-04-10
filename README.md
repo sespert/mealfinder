@@ -26,7 +26,7 @@ MealFinder is a user friendly web application that allows you to input foods and
 - Restaurant search based on location and cuisine or diet of the recipe.
 - Recipes can be saved in a Favorite list to be retrieved anytime by each user.
 
-![gif of app flow](https://github.com/Xnthiny/project1/blob/master/assets/images/AppFLow.gif)
+![gif of app flow](https://github.com/sespert/mealfinder/assets/images/AppFLow.gif)
  
 ### Motivation
 
