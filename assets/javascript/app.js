@@ -1,11 +1,12 @@
 $(document).ready(function() {
+
   //Global variables
   var ingredientList = [];
   var ingredForQuery = [];
   var cityForRestaurants;
   var items;
   var numOfRec = 4;
-  var apiKey = process.env.KEY;
+  var apiKey = "d9f0b4db96msh0b1a2f8611b2667p1a300ajsn5bfa1d26763a";
   var userID;
 
   //Hide divs from login page
