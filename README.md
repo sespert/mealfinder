@@ -59,7 +59,7 @@ Styling CSS (Anthony, Kayla & Juliette)
 
 Favorites functionality (Shirley)
 
-[See the app in action here](https://xnthiny.github.io/mealfinder)
+[See the app in action here](https://sespert.github.io/mealfinder/)
 
 ## Copyright
 Shirley Espert Galarce, Juliette Amador, Anthony Ham, Kayla Gilchrist
